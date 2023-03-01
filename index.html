@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Juego Adivina el Número</h1>
+
+    <p>Hemos seleccionado un número aleatorio entre 1 y 100. Tu reto es adivinarlo en 10 movidas o menos. Se te dirá si estás por encima o por debajo del número.</p>
+
+    <div class="form">
+        <label for="guessField">Ingresa un número: </label>
+        <input type="number" min="1" max="100" id="guessField" class="guessField">
+
+        <input type="submit" value="Enviar" class="guessSubmit">
+    </div>
+
+    <div class="resultParas">
+        <p class="guesses"></p>
+        <p class="lastResult"></p>
+        <p class="lowOrHi"></p>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>
