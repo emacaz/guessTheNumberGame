@@ -40,7 +40,7 @@ function checkGuess() {
             setGameOver();
         } else {
             lastResult.textContent = 'Equivocado!';
-            lastResult.style.backgroundcolor = 'red';
+            lastResult.style.backgroundColor = 'red';
 
             if (userGuess < randomNumber) {
                 lowOrHi.textContent = 'Muy por debajo!';
@@ -56,9 +56,36 @@ function checkGuess() {
 }
 
 
-function setGameOver() {}
+function setGameOver() {
+    guessField.disabled = true;
+    guessSubmit.disabled = true;
+    resetButton = document.createElement('button');
+    resetButton.textContent = 'Empezar de nuevo';
+    document.body.append(resetButton);
+    resetButton.addEventListener('click', resetGame)
+}
 
-function resetGame() {}
+function resetGame() {
+    guessCount = 1;
+
+    const resetParas = document.querySelectorAll('.resultParas p');
+
+    // LOOP
+    for (const resetPara of resetParas) {
+        resetPara.textContent = '';
+    }
+
+    resetButton.parentNode.removeChild(resetButton);
+
+    guessField.disabled = false;
+    guessSubmit.disabled = false;
+    guessField.value = '';
+    guessField.focus();
+
+    lastResult.style.backgroundColor = 'white';
+
+    randomNumber = Math.floor(Math.random() * 100) + 1;
+}
 
 
 guessSubmit.addEventListener("click", checkGuess);
